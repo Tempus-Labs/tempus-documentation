@@ -41,4 +41,4 @@ Tempus Labs utilizes advanced technology to create engaging and impactful AI Age
 * _Python 3.10_ – Ensures compatibility with modern Python features, offering efficient and clean code development.
 * _Dexscreener API_ – Provides real-time market data and analytics for comprehensive token performance insights.
 * _Solana RPC API_ – Facilitates fast and secure interaction with the Solana blockchain for on-chain data analysis.
-* _Deepseek LLM Models_ – Advanced large language models enabling deep market analysis and predictive insights.
+* _Agnostic LLM Models_ – Advanced large language models enabling deep market analysis and predictive insights.
