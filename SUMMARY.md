@@ -1,11 +1,12 @@
 # Table of contents
 
-* [Welcome](README.md)
+* [Introduction](README.md)
+* [Getting Started](getting-started.md)
 
 ## Getting Started
 
-* [Quickstart](getting-started/quickstart.md)
-* [Publish your docs](getting-started/publish-your-docs.md)
+* [Quickstart](getting-started-1/quickstart.md)
+* [Publish your docs](getting-started-1/publish-your-docs.md)
 
 ## Basics
 
