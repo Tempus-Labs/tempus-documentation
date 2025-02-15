@@ -7,7 +7,7 @@ The `Utils` module provides essential helper functions for operations like data 
 ## Example Utility Function:
 
 ```bash
-def calculate_average_change(changes):
+def calculate_average(changes):
     return sum(changes) / len(changes)
 ```
 
