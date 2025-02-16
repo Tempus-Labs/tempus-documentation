@@ -1,3 +1,7 @@
+---
+icon: chart-simple-horizontal
+---
+
 # Getting Started
 
 ## Prerequisites
