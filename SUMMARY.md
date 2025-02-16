@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [Getting Started](getting-started.md)
+* [Strategic Roadmap](strategic-roadmap.md)
 
 ## DOCUMENTATION
 
