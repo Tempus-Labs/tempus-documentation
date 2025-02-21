@@ -104,7 +104,7 @@ trending = client.get_trending_tokens(limit=10)
 ai_tokens = client.get_meta_tokens(meta="ai", limit=5)
 ```
 
-### DexScreener Integration
+#### DexScreener Integration
 
 ```python
 from tempus.data.dex_client import DexClient
