@@ -26,7 +26,18 @@ pip install tempus-labs==1.0.0
 {% endstep %}
 
 {% step %}
-**Step 2: Basic usage**
+**Step 2: Create the Environment File**
+
+Set up a `.env` file to store your API key securely:
+
+```python
+OPENAI_API_KEY=your_api_key # Fill if you are using OpenAI
+DEEPSEEK_API_KEY=your_api_key # Fill if you are using Deepseek
+```
+{% endstep %}
+
+{% step %}
+**Step 3: Basic usage**
 
 ```python
 from tempus.agents import QuantAIAgent
@@ -41,27 +52,6 @@ print(response)
 # Stream chat for analyze $ai16z coin
 for chunk in agent.chat_stream("What about $ai16z coin?"):
     print(chunk, end="")
-```
-{% endstep %}
-
-{% step %}
-**Step 3: Create the Environment File**
-
-Set up a `.env` file to store your API key securely:
-
-```bash
-OPENAI_API_KEY=your_api_key # Fill if you are using OpenAI
-DEEPSEEK_API_KEY=your_api_key # Fill if you are using Deepseek
-```
-{% endstep %}
-
-{% step %}
-**Step 4: Start the Agent**
-
-Launch your Tempus AI agent to begin quantitative analysis:
-
-```bash
-python -m tempus.agent
 ```
 {% endstep %}
 {% endstepper %}
