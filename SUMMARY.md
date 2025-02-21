@@ -9,4 +9,4 @@
 * [Agent](documentation/agent.md)
 * [Data](documentation/data.md)
 * [Prompt Templates](documentation/prompt-templates.md)
-* [Utils](documentation/utils.md)
+* [Utility](documentation/utility.md)
