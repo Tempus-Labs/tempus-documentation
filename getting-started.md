@@ -7,6 +7,7 @@ icon: chart-simple-horizontal
 ## Prerequisites
 
 * Python 3.10
+* LLM API Key
 
 ## Installation
 
