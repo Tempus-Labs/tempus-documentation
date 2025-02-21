@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Getting Started](getting-started.md)
+* [Getting Started with Tempus](getting-started.md)
 * [Roadmap](roadmap.md)
 * [USAGE](usage/README.md)
   * [Examples](usage/examples.md)

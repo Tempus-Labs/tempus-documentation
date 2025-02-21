@@ -2,15 +2,15 @@
 icon: chart-simple-horizontal
 ---
 
-# Getting Started
+# Getting Started with Tempus
 
-## Prerequisites
+### Prerequisites
 
 * [Python 3.10](https://www.python.org/)
 * LLM API Key (OpenAI, Deepseek)
 * [Chromedriver](https://developer.chrome.com/docs/chromedriver/downloads)
 
-## Installation
+### Installation
 
 Follow these simple steps to install and set up Tempus Labs:
 
@@ -42,18 +42,48 @@ DEEPSEEK_API_KEY=your_api_key # Fill if you are using Deepseek
 ```python
 from tempus.agents import QuantAIAgent
 
-# Initialize agent with Deepseek
-agent = QuantAIAgent(llm_provider="deepseek", model_name="deepseek-chat")
+# Initialize with default settings (OpenAI)
+agent = QuantAIAgent()
 
-# Analyze pump.fun market
-response = agent.chat("Analyze the top 10 trending ai meta on Pump.fun")
+# Basic analysis
+response = agent.chat("Analyze BTC market trends")
 print(response)
 
-# Stream chat for analyze $ai16z coin
-for chunk in agent.chat_stream("What about $ai16z coin?"):
+# Streaming responses
+for chunk in agent.chat_stream("What's happening with ETH?"):
     print(chunk, end="")
 ```
 {% endstep %}
 {% endstepper %}
+
+### Basic Concepts
+
+#### QuantAIAgent
+
+The `QuantAIAgent` is your main interface to the Tempus framework. It provides:
+
+* Market analysis capabilities
+* Real-time data streaming
+* Multiple LLM provider support
+* Conversation memory
+
+#### Market Analysis Tools
+
+Tempus comes with several built-in analysis tools:
+
+* Contract Analysis: Deep dive into token contracts
+* Ticker Analysis: Research specific tokens
+* Market Trends: Track trending tokens
+* Meta Market Analysis: Explore token categories (AI, Gaming, Meme)
+
+#### Data Sources
+
+Tempus integrates with:
+
+* Pump.fun for real-time token data
+* DexScreener for comprehensive market data
+* Multi-chain support (focused on Solana)
+
+### Next Steps
 
 You're now ready to explore the power of Tempus Labs for AI-driven quantitative insights on the Solana ecosystem!
