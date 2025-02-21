@@ -6,8 +6,9 @@ icon: chart-simple-horizontal
 
 ## Prerequisites
 
-* Python 3.10
-* LLM API Key
+* [Python 3.10](https://www.python.org/)
+* LLM API Key (OpenAI, Deepseek)
+* [Chromedriver](https://developer.chrome.com/docs/chromedriver/downloads)
 
 ## Installation
 
@@ -20,7 +21,7 @@ Follow these simple steps to install and set up Tempus Labs:
 Begin by installing the Tempus framework using pip:
 
 ```bash
-pip install tempus
+pip install tempus-labs
 ```
 {% endstep %}
 
