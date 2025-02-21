@@ -21,22 +21,42 @@ Follow these simple steps to install and set up Tempus Labs:
 Begin by installing the Tempus framework using pip:
 
 ```bash
-pip install tempus-labs
+pip install tempus-labs==1.0.0
 ```
 {% endstep %}
 
 {% step %}
-**Step 2: Create the Environment File**
+**Step 2: Basic usage**
+
+```python
+from tempus.agents import QuantAIAgent
+
+# Initialize agent with Deepseek
+agent = QuantAIAgent(llm_provider="deepseek", model_name="deepseek-chat")
+
+# Analyze pump.fun market
+response = agent.chat("Analyze the top 10 trending ai meta on Pump.fun")
+print(response)
+
+# Stream chat for analyze $ai16z coin
+for chunk in agent.chat_stream("What about $ai16z coin?"):
+    print(chunk, end="")
+```
+{% endstep %}
+
+{% step %}
+**Step 3: Create the Environment File**
 
 Set up a `.env` file to store your API key securely:
 
 ```bash
-DEEPSEEK_API_KEY = ''  # Replace with your Deepseek API key  
+OPENAI_API_KEY=your_api_key # Fill if you are using OpenAI
+DEEPSEEK_API_KEY=your_api_key # Fill if you are using Deepseek
 ```
 {% endstep %}
 
 {% step %}
-**Step 3: Start the Agent**
+**Step 4: Start the Agent**
 
 Launch your Tempus AI agent to begin quantitative analysis:
 
