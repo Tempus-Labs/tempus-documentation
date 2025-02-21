@@ -6,6 +6,7 @@
 * [USAGE](usage/README.md)
   * [Examples](usage/examples.md)
   * [Advanced Usage](usage/advanced-usage.md)
+* [API Reference](api-reference.md)
 
 ## COMPONENTS
 
@@ -13,10 +14,6 @@
 * [Data](components/data.md)
 * [Prompt Templates](components/prompt-templates.md)
 * [Utility](components/utils.md)
-
-***
-
-* [API Reference](api-reference.md)
 
 ## OUR SOCIALS
 
