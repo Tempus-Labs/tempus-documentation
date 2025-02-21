@@ -4,156 +4,292 @@ icon: square-terminal
 
 # Prompt Templates
 
-## Overview
+### Overview
 
-Prompt templates ensure consistent and structured response standards from Agents, resulting in more accurate and reliable analysis. The Prompt Templates module manages the various templates used to ask agents questions and ensures uniformity in the reports generated.
+The `Prompt Templates` component manages the system prompts and instructions used by the QuantAIAgent. These templates define how the AI agent interacts with users, analyzes market data, and formats responses. The component ensures consistent and effective communication patterns across the framework.
 
-## Template Structure
+### Basic Concepts
 
-1. #### **QUANT\_AI\_PROMPT:** General Cryptocurrency Analysis
+#### Template Types
 
-```bash
-QUANT_AI_PROMPT = """
-# Quant AI Agent
+1. **System Prompts**
+   * Define agent's role and capabilities
+   * Set behavior guidelines
+   * Establish response formats
+2. **Analysis Templates**
+   * Market analysis structures
+   * Token evaluation patterns
+   * Trend analysis frameworks
 
-## Role
-You are a Quant AI Agent specializing in analyzing historical and real-time cryptocurrency market data. Your primary objective is to extract meaningful insights, detect patterns, and generate comprehensive reports that aid in data-driven decision-making.
+### Architecture
 
-## Input Data Placeholder
+```
+prompt_templates/
+├── quant_ai.py         # QuantAI agent prompts
+└── __init__.py         # Package initialization
 ```
 
-`{historical_data}`
+### Basic Usage
 
-```bash
-## Objective
-Analyze and interpret historical and real-time cryptocurrency market data to identify trends, assess market sentiment, and provide actionable insights. Focus on detecting bullish and bearish signals, trading opportunities, and potential risks.
+#### Using Templates
 
-## Instructions
+```python
+from tempus.prompt_templates.quant_ai import (
+    QUANT_AI_CHATBOT_PROMPT,
+    MARKET_ANALYSIS_TEMPLATE,
+    TOKEN_ANALYSIS_TEMPLATE
+)
 
-### 1. Data Processing
-- Process the input data and ensure completeness and consistency.
-- Normalize price, volume, and transaction data across different timeframes.
-- Identify missing values or anomalies that may affect the analysis.
+# Create prompt template
+from langchain_core.prompts import ChatPromptTemplate
 
-### 2. Trend Identification
-- Analyze price movements and volume trends over multiple timeframes.
-- Identify and classify market trends as **Bullish**, **Bearish**, or **Neutral**.
-- Compute moving averages (e.g., SMA, EMA) to assess momentum.
-- Highlight periods of high volatility and sudden price swings.
+prompt = ChatPromptTemplate.from_messages([
+    ("system", QUANT_AI_CHATBOT_PROMPT),
+    ("user", "{input}")
+])
+```
 
-### 3. Market Indicators & Sentiment Analysis
-- Evaluate trading volume patterns to detect accumulation or distribution phases.
-- Analyze buy/sell transactions and order book depth to infer market sentiment.
-- Identify **Relative Strength Index (RSI)** values to detect overbought or oversold conditions.
-- Compare historical and current volatility levels to assess risk.
+#### Customizing Templates
 
-### 4. Risk and Opportunity Assessment
-- Identify high-risk assets based on price instability, low liquidity, or large holder concentration.
-- Detect potential market manipulation (e.g., sudden price pumps, high slippage events).
-- Highlight assets with strong growth potential based on trading activity and volume trends.
+```python
+# Extend base template
+custom_prompt = QUANT_AI_CHATBOT_PROMPT + """
+Additional Instructions:
+1. Focus on DeFi metrics
+2. Include liquidity analysis
+3. Evaluate token utility
+"""
 
-### 5. Trading Signals & Strategy Insights
-- Generate buy/sell signals based on moving averages, RSI, and volume trends.
-- Provide entry and exit points for high-probability trade setups.
-- Rank assets based on their risk-reward profile, categorizing them as **High Potential**, **Stable**, **Speculative**, or **High-Risk**.
+# Create template with custom instructions
+template = ChatPromptTemplate.from_messages([
+    ("system", custom_prompt),
+    ("user", "{input}")
+])
+```
 
-## Expected Output
-- Summary of historical and real-time market trends.
-- Detailed analysis of key trading metrics and market sentiment.
-- Identified risks and potential investment opportunities.
-- Concise and actionable insights tailored for traders and investors.
+### Template Structure
+
+#### System Prompt
+
+```python
+QUANT_AI_CHATBOT_PROMPT = """
+You are a specialized cryptocurrency market analyst with expertise in:
+1. Technical Analysis
+2. Market Trends
+3. Token Evaluation
+4. Risk Assessment
+
+For each analysis:
+- Provide data-driven insights
+- Include relevant metrics
+- Highlight key risks
+- Suggest action points
 """
 ```
 
-**Template Applied:** **Cryptocurrency Market Insights Report**
+#### Analysis Templates
 
-* **Average Price Change**: \{{avg\_price\_change\}}
-* **Significant Trends**: \{{trends\}}
-* **Buy/Sell Recommendations**: \{{recommendations\}}
+```python
+MARKET_ANALYSIS_TEMPLATE = """
+Analyze the following market aspects:
+1. Price Action
+   - Current price: {price}
+   - 24h change: {change_24h}
+   - Volume: {volume}
 
-2. #### **QUANT\_PUMP\_FUN\_PROMPT:** Pump.fun Meme Coin Market Analysis
+2. Market Context
+   - Market cap: {market_cap}
+   - Rank: {rank}
+   - Category: {category}
 
-```bash
-QUANT_PUMP_FUN_PROMPT = """
-# Pump.fun Market Analysis Agent
+3. Key Metrics
+   - Liquidity: {liquidity}
+   - Holders: {holders}
+   - Distribution: {distribution}
 
-## Role
-You are a specialized AI Agent focused on analyzing Pump.fun market data for meme coins on the Solana blockchain. Your goal is to extract key insights, identify trends, and assess risks to provide traders with actionable intelligence.
+Provide analysis focusing on:
+- Current market position
+- Notable trends
+- Risk factors
+- Opportunities
+"""
 
-## Input Data Placeholder
-```
+TOKEN_ANALYSIS_TEMPLATE = """
+Evaluate this token:
+Symbol: {symbol}
+Contract: {contract}
+Network: {network}
 
-`{historical_data}`
-
-```bash
-## Objective
-Analyze real-time and historical market data from Pump.fun to detect price trends, volume surges, and potential risks associated with meme coin trading. Provide traders with a clear overview of the most active and promising assets.
-
-## Instructions
-
-### 1. Data Processing & Market Metrics Extraction
-- Process and validate input data to ensure accuracy and completeness.
-- Extract key trading metrics:
-  - **Market Cap:** Assess the overall size and stability of the project.
-  - **Volume (5m, 1h, 24h):** Identify liquidity trends and trading spikes.
-  - **Buy/Sell Transactions:** Detect accumulation or distribution patterns.
-  - **Top Holder %:** Evaluate the concentration of token ownership.
-  - **Mint Price vs. Current Price:** Compare profitability and market positioning.
-- Detect unusual trading patterns, including sudden volume spikes and price movements.
-
-### 2. Trend & Sentiment Analysis
-- Identify meme coins with the highest upward or downward momentum.
-- Compare recent trading activity with historical trends to validate market signals.
-- Detect velocity changes (e.g., sudden surge in buy/sell activity).
-- Highlight trending tokens with strong buy pressure.
-
-### 3. Risk Evaluation
-- Assess the level of centralization by analyzing top holders.
-- Detect potential rug-pulls or pump-and-dump schemes based on sell pressure.
-- Evaluate liquidity risks by comparing trading volume to market cap stability.
-- Flag assets with sudden, unexplained price crashes.
-
-### 4. Ranking & Categorization
-- Rank tokens based on key performance metrics, such as:
-  - **Highest 24h Volume**
-  - **Biggest Price Gainers**
-  - **Most Active Transactions**
-- Categorize tokens into:
-  - **Emerging:** Newly trending coins with growing volume.
-  - **Stable:** Coins with consistent trading activity.
-  - **High-Risk:** Tokens with extreme volatility or high centralization.
-  - **Overheated:** Assets experiencing unsustainable pumps.
-
-### 5. Actionable Insights & Recommendations
-- Identify promising meme coins with strong growth signals.
-- Provide warnings for tokens showing signs of market manipulation.
-- Offer insights on potential entry and exit points based on market data.
-- Generate concise summaries of the most notable assets for traders.
-
-## Expected Output
-- A structured summary of market trends and insights.
-- A ranked list of high-potential meme coins.
-- Risk assessments for flagged assets.
-- Key trading signals and potential investment opportunities.
+Consider:
+1. Token Fundamentals
+2. Market Performance
+3. Technical Indicators
+4. Risk Assessment
 """
 ```
 
-**Template Applied:** **Pump.fun Market Analysis Report**
+### Advanced Features
 
-* **Market Cap**: \{{market\_cap\}}
-* **Volume (5m/1h/24h)**: \{{volume\}}
-* **Buy/Sell Transactions**: \{{buy\_sell\_patterns\}}
-* **Risk Indicators**: \{{risk\_assessment\}}
-* **Ranking**: \{{ranking\}}
-* **Actionable Insights**: \{{insights\}}
+#### Dynamic Templates
 
-## Template Variables
+```python
+def create_dynamic_template(metrics: List[str]) -> str:
+    """Create template based on available metrics"""
+    sections = ["Basic Analysis:"]
+    
+    if "price" in metrics:
+        sections.append("Price Analysis:\n- Current: {price}\n- Change: {change}")
+    
+    if "volume" in metrics:
+        sections.append("Volume Analysis:\n- 24h: {volume}\n- 7d: {volume_7d}")
+    
+    return "\n\n".join(sections)
+```
 
-* **General Analysis Variables:** `{{historical_data}}`, `{{avg_price_change}}`, `{{trends}}`, `{{recommendations}}`
-* **Pump.fun Specific Variables:** `{{market_cap}}`, `{{volume}}`, `{{buy_sell_patterns}}`, `{{risk_assessment}}`, `{{ranking}}`, `{{insights}}`
+#### Template Composition
 
-## Methods
+```python
+def compose_templates(templates: List[str]) -> str:
+    """Combine multiple templates"""
+    return "\n\n".join([
+        "Combined Analysis:",
+        *templates
+    ])
+```
 
-* `get_template(name: str)`: Retrieves a template by name.
-* `list_templates()`: Displays all available templates.
-* `render(name: str, **kwargs)`: Populates a template with provided variables.
+### Best Practices
+
+1.  **Template Organization**
+
+    ```python
+    # Group related templates
+    PRICE_TEMPLATES = {
+        "basic": "Basic price analysis: {price}",
+        "detailed": "Detailed price analysis: {price} with {indicators}"
+    }
+
+    VOLUME_TEMPLATES = {
+        "basic": "Volume overview: {volume}",
+        "detailed": "Volume analysis: {volume} across {timeframes}"
+    }
+    ```
+2.  **Template Validation**
+
+    ```python
+    def validate_template(template: str, required_vars: Set[str]) -> bool:
+        """Validate template has required variables"""
+        template_vars = {
+            var.strip("{}") for var in 
+            re.findall(r"\{([^}]+)\}", template)
+        }
+        return required_vars.issubset(template_vars)
+    ```
+3.  **Version Control**
+
+    ```python
+    class TemplateVersion:
+        def __init__(self, version: str, template: str):
+            self.version = version
+            self.template = template
+            self.created_at = datetime.now()
+
+    TEMPLATE_VERSIONS = {
+        "v1.0": TemplateVersion("1.0", QUANT_AI_CHATBOT_PROMPT),
+        "v1.1": TemplateVersion("1.1", UPDATED_PROMPT)
+    }
+    ```
+
+### Extension Points
+
+#### Custom Templates
+
+```python
+class CustomTemplate:
+    def __init__(self, base_template: str):
+        self.base = base_template
+        
+    def add_section(self, section: str) -> None:
+        self.base += f"\n\n{section}"
+        
+    def get_template(self) -> str:
+        return self.base
+```
+
+#### Template Processors
+
+```python
+class TemplateProcessor:
+    def __init__(self, template: str):
+        self.template = template
+        
+    def add_defaults(self, defaults: Dict[str, str]) -> None:
+        """Add default values for template variables"""
+        self.defaults = defaults
+        
+    def process(self, **kwargs) -> str:
+        """Process template with given variables"""
+        variables = {**self.defaults, **kwargs}
+        return self.template.format(**variables)
+```
+
+### Performance Considerations
+
+1.  **Template Caching**
+
+    ```python
+    from functools import lru_cache
+
+    @lru_cache(maxsize=100)
+    def get_processed_template(template_name: str, **kwargs) -> str:
+        template = load_template(template_name)
+        return template.format(**kwargs)
+    ```
+2.  **Lazy Loading**
+
+    ```python
+    class LazyTemplateLoader:
+        def __init__(self):
+            self._templates = {}
+            
+        def get_template(self, name: str) -> str:
+            if name not in self._templates:
+                self._templates[name] = load_template(name)
+            return self._templates[name]
+    ```
+
+### Security Considerations
+
+1.  **Input Validation**
+
+    ```python
+    def safe_format(template: str, **kwargs) -> str:
+        """Safely format template with validated input"""
+        safe_kwargs = {
+            k: str(v).replace("{", "{{").replace("}", "}}")
+            for k, v in kwargs.items()
+        }
+        return template.format(**safe_kwargs)
+    ```
+2.  **Template Sanitization**
+
+    ```python
+    def sanitize_template(template: str) -> str:
+        """Remove potentially harmful template constructs"""
+        return template.replace("{", "{{").replace("}", "}}")
+    ```
+
+### Testing Templates
+
+```python
+def test_template(template: str, test_cases: List[Dict]) -> bool:
+    """Test template with various inputs"""
+    for case in test_cases:
+        try:
+            result = template.format(**case)
+            if not validate_output(result):
+                return False
+        except Exception:
+            return False
+    return True
+```
+
