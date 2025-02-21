@@ -2,7 +2,7 @@
 icon: earth-asia
 ---
 
-# Strategic Roadmap
+# Roadmap
 
 The Strategic Roadmap delineates Tempus Labs commitment to advancing its platform's capabilities, focusing on three pivotal areas: **Market Analysis**, **Portfolio Management**, and **Social Media Sentiment Integration**. This roadmap serves as a structured guide, outlining the phased development and implementation of features designed to enhance user experience and provide comprehensive, AI-driven tools for informed decision-making within the Solana ecosystem.
 
@@ -18,27 +18,9 @@ The Strategic Roadmap delineates Tempus Labs commitment to advancing its platfor
   * Implement machine learning algorithms to detect market trends and anomalies.
   * Develop predictive models for token performance and liquidity analysis.
 
-## Portfolio Management
-
-**Phase I: Wallet Integration and Monitoring (Q2 2025)**
-
-* **Objective**: Enable users to connect their Solana wallets for real-time portfolio tracking and management.
-* **Key Actions**:
-  * Develop secure wallet integration protocols.
-  * Provide real-time tracking of asset holdings and valuations.
-  * Implement alerts for significant portfolio changes or risks.
-
-**Phase II: AI-Enhanced Portfolio Optimization (Q2 2025)**
-
-* **Objective**: Leverage AI to offer personalized portfolio optimization strategies based on user-defined goals and risk tolerance.
-* **Key Actions**:
-  * Analyze user portfolios to identify diversification opportunities and risk exposures.
-  * Recommend asset reallocation and investment strategies using AI-driven insights.
-  * Continuously update recommendations based on market dynamics and user preferences.
-
 ## Social Media Sentiment Integration
 
-**Phase I: Sentiment Data Collection (Q3 2025)**
+**Phase I: Sentiment Data Collection (Q2 2025)**
 
 * **Objective**: Aggregate sentiment data from various social media platforms to gauge public perception of specific tokens and the broader market.
 * **Key Actions**:
@@ -46,12 +28,32 @@ The Strategic Roadmap delineates Tempus Labs commitment to advancing its platfor
   * Develop tools to collect and preprocess large volumes of social media data.
   * Ensure compliance with data privacy regulations and platform policies.
 
-**Phase II: Sentiment Analysis and Correlation (Q3 2025)**
+**Phase II: Sentiment Analysis and Correlation (Q2 2025)**
 
 * **Objective**: Implement AI models to analyze social media sentiment and correlate findings with market data to enhance predictive analytics.
 * **Key Actions**:
   * Utilize natural language processing (NLP) techniques to assess sentiment polarity and intensity.
   * Correlate sentiment trends with market movements to identify potential predictive patterns.
   * Incorporate sentiment analysis into the existing market insights dashboard for comprehensive user insights.
+
+## Portfolio Management
+
+**Phase I: Wallet Integration and Monitoring (Q3 2025)**
+
+* **Objective**: Enable users to connect their Solana wallets for real-time portfolio tracking and management.
+* **Key Actions**:
+  * Develop secure wallet integration protocols.
+  * Provide real-time tracking of asset holdings and valuations.
+  * Implement alerts for significant portfolio changes or risks.
+
+**Phase II: AI-Enhanced Portfolio Optimization (Q3 2025)**
+
+* **Objective**: Leverage AI to offer personalized portfolio optimization strategies based on user-defined goals and risk tolerance.
+* **Key Actions**:
+  * Analyze user portfolios to identify diversification opportunities and risk exposures.
+  * Recommend asset reallocation and investment strategies using AI-driven insights.
+  * Continuously update recommendations based on market dynamics and user preferences.
+
+
 
 This roadmap outlines Tempus Labs strategic initiatives to enhance its platform's capabilities in market analysis, portfolio management, and social media sentiment integration, aiming to provide users with a comprehensive and AI-driven toolset for informed decision-making in the Solana space.
