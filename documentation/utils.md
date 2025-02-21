@@ -2,7 +2,7 @@
 icon: screwdriver-wrench
 ---
 
-# Utils
+# Utility
 
 ## Overview
 
