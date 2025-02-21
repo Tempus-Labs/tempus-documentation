@@ -97,7 +97,7 @@ analyze_category("meme")
 
 ### Data Integration
 
-### Real-time Data
+#### Real-time Data
 
 ```python
 from tempus.data.pump_fun_client import PumpFunClient
