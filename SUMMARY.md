@@ -3,6 +3,8 @@
 * [Introduction](README.md)
 * [Getting Started](getting-started.md)
 * [Roadmap](roadmap.md)
+* [USAGE](usage/README.md)
+  * [Examples](usage/examples.md)
 
 ## DOCUMENTATION
 
