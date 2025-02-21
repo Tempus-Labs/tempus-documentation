@@ -5,13 +5,14 @@
 * [Roadmap](roadmap.md)
 * [USAGE](usage/README.md)
   * [Examples](usage/examples.md)
+  * [Advanced Usage](usage/advanced-usage.md)
 
-## DOCUMENTATION
+## COMPONENTS
 
-* [Agent](documentation/agent.md)
-* [Data](documentation/data.md)
-* [Prompt Templates](documentation/prompt-templates.md)
-* [Utility](documentation/utils.md)
+* [Agent](components/agent.md)
+* [Data](components/data.md)
+* [Prompt Templates](components/prompt-templates.md)
+* [Utility](components/utils.md)
 
 ## OUR SOCIALS
 
