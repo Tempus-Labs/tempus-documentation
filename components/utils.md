@@ -2,41 +2,15 @@
 icon: screwdriver-wrench
 ---
 
-# Utility
+# Tools
 
 ## Overview
 
-The `Utility` component provides specialized market analysis tools that are used by the QuantAIAgent. These tools enable detailed analysis of cryptocurrency markets, tokens, and trends. Each tool is designed to handle specific aspects of market analysis and can be used independently or through the agent.
+The `Tools` component provides specialized market analysis tools that are used by the QuantAIAgent. These tools enable detailed analysis of cryptocurrency markets, tokens, and trends. Each tool is designed to handle specific aspects of market analysis and can be used independently or through the agent.
 
-## Example Utility Function:
+## Basic Concepts
 
-```python
-def analyze_contract(contract_address):
-    """
-    Analyzes a Solana token contract using DexScreener data.
-    """
-    dex = DexClient()
-    dex_data = dex.get_token_pairs("solana", contract_address)
-    if not dex_data:
-        return {"error": f"Data for {contract_address} not available on DexScreener"}
-    return {"analysis": dex_data}
-```
-
-## Component
-
-* **Utility Name:** Function identifier.&#x20;
-* **Utility Description:** Brief explanation of its role
-
-## Methods
-
-* `analyze_contract(contract_address)` – Analyzes a Solana token contract using DexScreener data.
-* `analyze_ticker(ticker)` – Extracts and analyzes token data based on its ticker symbol.
-* `analyze_market_trends(top_n_tokens)` – Retrieves and analyzes trending tokens from Pump.fun along with DexScreener data.
-* `analyze_meta_market(top_n_tokens, meta)` – Retrieves and analyzes trending tokens from Pump.fun for a given meta category.
-
-### Basic Concepts
-
-#### Tool Types
+### Tool Types
 
 1. **Contract Analysis**
    * Token contract evaluation
@@ -51,7 +25,7 @@ def analyze_contract(contract_address):
    * Token classification
    * Market segment evaluation
 
-### Architecture
+## Architecture
 
 ```
 tools/
@@ -59,9 +33,16 @@ tools/
 └── __init__.py          # Package initialization
 ```
 
-### Basic Usage
+## Methods
 
-#### Direct Tool Usage
+* `analyze_contract(contract_address)` – Analyzes a Solana token contract using DexScreener data.
+* `analyze_ticker(ticker)` – Extracts and analyzes token data based on its ticker symbol.
+* `analyze_market_trends(top_n_tokens)` – Retrieves and analyzes trending tokens from Pump.fun along with DexScreener data.
+* `analyze_meta_market(top_n_tokens, meta)` – Retrieves and analyzes trending tokens from Pump.fun for a given meta category.
+
+## Basic Usage
+
+### Direct Tool Usage
 
 ```python
 from tempus.tools.market_analysis import (
@@ -75,7 +56,7 @@ from tempus.tools.market_analysis import (
 result = analyze_contract("contract_address")
 
 # Analyze a ticker
-analysis = analyze_ticker("BTC")
+analysis = analyze_ticker("ai16z")
 
 # Get market trends
 trends = analyze_market_trends(top_n=10)
@@ -84,7 +65,7 @@ trends = analyze_market_trends(top_n=10)
 ai_tokens = analyze_meta_market(meta="ai", top_n=5)
 ```
 
-#### Tool Configuration
+### Tool Configuration
 
 ```python
 from langchain_openai import ChatOpenAI
@@ -94,9 +75,9 @@ llm = ChatOpenAI(model="gpt-4")
 set_llm(llm)
 ```
 
-### Tool Details
+## Tool Details
 
-#### Contract Analysis Tool
+### Contract Analysis Tool
 
 ```python
 @tool
@@ -130,7 +111,7 @@ def analyze_contract(contract_address: str) -> Dict[str, Any]:
     return {"analysis": response}
 ```
 
-#### Ticker Analysis Tool
+### Ticker Analysis Tool
 
 ```python
 @tool
@@ -170,7 +151,7 @@ def analyze_ticker(ticker: str) -> Dict[str, Any]:
     return {"analysis": response}
 ```
 
-#### Market Trends Tool
+### Market Trends Tool
 
 ```python
 @tool
@@ -214,7 +195,7 @@ def analyze_market_trends(top_n_tokens: int) -> Dict[str, Any]:
     return {"market_analysis": response}
 ```
 
-#### Meta Market Tool
+### Meta Market Tool
 
 ```python
 @tool

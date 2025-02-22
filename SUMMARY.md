@@ -3,17 +3,22 @@
 * [Introduction](README.md)
 * [Getting Started](getting-started.md)
 * [Roadmap](roadmap.md)
-* [USAGE](usage/README.md)
-  * [Examples](usage/examples.md)
-  * [Advanced Usage](usage/advanced-usage.md)
-* [API Reference](api-reference.md)
+
+## Usages
+
+* [Examples](usages/examples.md)
+* [Advanced Usage](usages/advanced-usage.md)
 
 ## COMPONENTS
 
 * [Agent](components/agent.md)
 * [Data](components/data.md)
 * [Prompt Templates](components/prompt-templates.md)
-* [Utility](components/utils.md)
+* [Tools](components/utils.md)
+
+***
+
+* [API References](api-references.md)
 
 ## OUR SOCIALS
 

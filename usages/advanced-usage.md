@@ -4,15 +4,15 @@ icon: scale-balanced
 
 # Advanced Usage
 
-### Custom Model Configuration
+## Custom Model Configuration
 
-#### Using Different Models
+### Using Different Models
 
 ```python
 # Initialize with specific OpenAI model
 agent = QuantAIAgent(
     llm_provider="openai",
-    model_name="gpt-4-turbo"
+    model_name="gpt-4"
 )
 
 # Switch to Deepseek
@@ -22,34 +22,34 @@ agent = QuantAIAgent(
 )
 ```
 
-#### Switching Models During Runtime
+### Switching Models During Runtime
 
 ```python
 agent = QuantAIAgent()
 
 # Switch to different model
-agent.set_model("deepseek", "deepseek-chat-v2")
+agent.set_model("deepseek", "deepseek-reasoning")
 ```
 
-### Streaming with Progress Updates
+## Streaming with Progress Updates
 
-#### Basic Streaming
+### Basic Streaming
 
 ```python
 def process_stream():
     agent = QuantAIAgent()
-    for chunk in agent.chat_stream("Analyze BTC market"):
+    for chunk in agent.chat_stream("Analyze pump.fun market"):
         print(chunk, end="", flush=True)
 ```
 
-#### Custom Stream Processing
+### Custom Stream Processing
 
 ```python
 def process_stream_with_progress():
     agent = QuantAIAgent()
     chunks = []
     
-    for chunk in agent.chat_stream("Deep dive into ETH market"):
+    for chunk in agent.chat_stream("Deep dive into pump.fun market"):
         chunks.append(chunk)
         # Show progress
         print(f"Received {len(chunks)} chunks", end="\r")
@@ -58,9 +58,9 @@ def process_stream_with_progress():
     return "".join(chunks)
 ```
 
-### Error Handling
+## Error Handling
 
-#### Basic Error Handling
+### Basic Error Handling
 
 ```python
 try:
@@ -69,7 +69,7 @@ except Exception as e:
     print(f"Analysis failed: {e}")
 ```
 
-#### Comprehensive Error Handling
+### Comprehensive Error Handling
 
 ```python
 from typing import Optional
@@ -88,9 +88,9 @@ def safe_analysis(contract: str) -> Optional[dict]:
         return {"success": False, "error": "Unknown error", "details": str(e)}
 ```
 
-### Working with Data Sources
+## Working with Data Sources
 
-#### PumpFun Integration
+### PumpFun Integration
 
 ```python
 from tempus.data.pump_fun_client import PumpFunClient
@@ -104,7 +104,7 @@ trending = client.get_trending_tokens(limit=10)
 ai_tokens = client.get_meta_tokens(meta="ai", limit=5)
 ```
 
-#### DexScreener Integration
+### DexScreener Integration
 
 ```python
 from tempus.data.dex_client import DexClient
@@ -112,7 +112,7 @@ from tempus.data.dex_client import DexClient
 client = DexClient()
 
 # Search for specific pair
-pairs = client.search_pairs("ETH/USDT")
+pairs = client.search_pairs("ai16z")
 
 # Get token pairs for contract
 token_pairs = client.get_token_pairs(
@@ -121,9 +121,9 @@ token_pairs = client.get_token_pairs(
 )
 ```
 
-### Performance Optimization
+## Performance Optimization
 
-#### Memory Management
+### Memory Management
 
 ```python
 def optimize_memory():
@@ -138,7 +138,7 @@ def optimize_memory():
             agent.clear_history()
 ```
 
-#### Batch Processing
+### Batch Processing
 
 ```python
 async def batch_process_tokens(tokens: List[str]):
@@ -155,9 +155,9 @@ async def batch_process_tokens(tokens: List[str]):
     return results
 ```
 
-### Custom Extensions
+## Custom Extensions
 
-#### Adding New Analysis Tools
+### Adding New Analysis Tools
 
 ```python
 from typing import Dict, Any
@@ -179,9 +179,9 @@ def custom_analysis_tool(agent: QuantAIAgent) -> Dict[str, Any]:
     return custom_metrics
 ```
 
-### Rate Limiting and Backoff
+## Rate Limiting and Backoff
 
-#### Implementing Rate Limits
+### Implementing Rate Limits
 
 ```python
 from time import sleep

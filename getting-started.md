@@ -4,13 +4,13 @@ icon: chart-simple-horizontal
 
 # Getting Started
 
-### Prerequisites
+## Prerequisites
 
 * [Python 3.10](https://www.python.org/)
 * LLM API Key (OpenAI, Deepseek)
 * [Chromedriver](https://developer.chrome.com/docs/chromedriver/downloads)
 
-### Installation
+## Installation
 
 Follow these simple steps to install and set up Tempus Labs:
 
@@ -56,9 +56,9 @@ for chunk in agent.chat_stream("What's happening with ETH?"):
 {% endstep %}
 {% endstepper %}
 
-### Basic Concepts
+## Basic Concepts
 
-#### QuantAIAgent
+### QuantAIAgent
 
 The `QuantAIAgent` is your main interface to the Tempus framework. It provides:
 
@@ -67,7 +67,7 @@ The `QuantAIAgent` is your main interface to the Tempus framework. It provides:
 * Multiple LLM provider support
 * Conversation memory
 
-#### Market Analysis Tools
+### Market Analysis Tools
 
 Tempus comes with several built-in analysis tools:
 
@@ -76,7 +76,7 @@ Tempus comes with several built-in analysis tools:
 * Market Trends: Track trending tokens
 * Meta Market Analysis: Explore token categories (AI, Gaming, Meme)
 
-#### Data Sources
+### Data Sources
 
 Tempus integrates with:
 
@@ -84,10 +84,10 @@ Tempus integrates with:
 * DexScreener for comprehensive market data
 * Multi-chain support (focused on Solana)
 
-### Next Steps
+## Next Steps
 
-* Check out the [API Reference](api-reference.md) for detailed documentation
-* Learn about advanced features in [Advanced Usage](usage/advanced-usage.md)
-* See [Examples](usage/examples.md) for more use cases
+* Check out the [API Reference](api-references.md) for detailed documentation
+* Learn about advanced features in [Advanced Usage](usages/advanced-usage.md)
+* See [Examples](usages/examples.md) for more use cases
 
 You're now ready to explore the power of Tempus Labs for AI-driven quantitative insights on the Solana ecosystem!

@@ -4,17 +4,17 @@ icon: database
 
 # Data
 
-### Overview
+## Overview
 
 The `Data` component provides interfaces to various cryptocurrency data sources. It handles real-time market data, historical data, and meta-information about tokens and trading pairs. The component is designed to be extensible and supports multiple data providers.
 
-### Data Resources
+## Data Resources
 
 * **Dexscreener API:** Provides token metrics (price, volume, liquidity, etc.).
 * **Solana RPC API:** Retrieves on-chain transaction data.
 * **Pump.fun API & Web Scraper**: Fetches trending tokens via WebSocket and scrapes metadata from the Pump.fun website.
 
-### Data Models
+## Data Models
 
 * `TokenData`: Stores token metadata (name, price, market cap, liquidity).
 * `TransactionData`: Records transaction counts and volume.
@@ -22,7 +22,7 @@ The `Data` component provides interfaces to various cryptocurrency data sources.
 * `TrendingTokenData`: Stores trending token information retrieved from Pump.fun.
 * `MetaTokenData`: Stores categorized tokens based on metadata from Pump.fun.
 
-### Data Flow
+## Data Flow
 
 1. API queries retrieve real-time data from Dexscreener and Solana RPC.
 2. WebSocket connection streams trending tokens from Pump.fun.
@@ -30,25 +30,9 @@ The `Data` component provides interfaces to various cryptocurrency data sources.
 4. Data is parsed and stored in structured models.
 5. Models feed into the Agent’s analysis process.
 
-### Components
+## Basic Concepts
 
-* **Data Source:** Defines sources such as Dexscreener, Solana RPC, and Pump.fun.&#x20;
-* **Data Type:** Indicates the type (e.g., Transactions, Liquidity, Prices, Trending Tokens, Meta Tokens).
-* **Data Schema:** Outlines fields and structures for processing.
-
-### Methods
-
-* `fetch_data()` – Collects data from integrated APIs.
-  * `DexClient.get_token_pairs(chain_id, token_address)`: Retrieves token pairs from Dexscreener.
-  * `DexClient.search_pairs(pair_name)`: Searches for token pairs by name.
-  * `PumpFunClient.get_trending_tokens(limit)`: Fetches trending tokens via WebSocket.
-  * `PumpFunClient.get_meta_tokens(meta, limit)`: Scrapes categorized tokens based on metadata.
-* `preprocess()` – Cleans and structures raw data for analysis.
-* `store()` – Saves processed data for reuse.
-
-### Basic Concepts
-
-#### Data Clients
+### Data Clients
 
 1. **PumpFunClient**
    * Real-time token data
@@ -59,7 +43,7 @@ The `Data` component provides interfaces to various cryptocurrency data sources.
    * Token information
    * Market statistics
 
-#### Data Types
+### Data Types
 
 1. **Token Data**
    * Price information
@@ -70,7 +54,7 @@ The `Data` component provides interfaces to various cryptocurrency data sources.
    * Liquidity data
    * Trading metrics
 
-### Architecture
+## Architecture
 
 ```
 data/
@@ -79,9 +63,9 @@ data/
 └── __init__.py          # Package initialization
 ```
 
-### Basic Usage
+## Basic Usage
 
-#### PumpFunClient
+### PumpFunClient
 
 ```python
 from tempus.data.pump_fun_client import PumpFunClient
@@ -102,7 +86,7 @@ ai_tokens = client.get_meta_tokens(
 )
 ```
 
-#### DexClient
+### DexClient
 
 ```python
 from tempus.data.dex_client import DexClient
@@ -117,12 +101,12 @@ pairs = client.get_token_pairs(
 )
 
 # Search pairs
-results = client.search_pairs("ETH/USDT")
+results = client.search_pairs("ai16z")
 ```
 
-### Advanced Features
+## Advanced Features
 
-#### WebSocket Streaming
+### WebSocket Streaming
 
 ```python
 async def stream_data():
@@ -132,7 +116,7 @@ async def stream_data():
         process_data(data)
 ```
 
-#### Batch Data Retrieval
+### Batch Data Retrieval
 
 ```python
 def batch_get_pairs(addresses: List[str]):
@@ -146,38 +130,79 @@ def batch_get_pairs(addresses: List[str]):
     return results
 ```
 
-### Data Structures
+## Data Structures
 
-#### Token Data
+### Token Data
 
 ```python
 TokenData = {
-    "symbol": str,          # Token symbol
-    "address": str,         # Contract address
-    "price": float,         # Current price
-    "volume_24h": float,    # 24h volume
-    "price_change": float,  # Price change %
-    "market_cap": float,    # Market cap
-    "created_at": str       # Creation timestamp
+  "schemaVersion": "text",
+  "pairs": [
+    {
+      "chainId": "text",
+      "dexId": "text",
+      "url": "https://example.com",
+      "pairAddress": "text",
+      "priceNative": "text",
+      "priceUsd": "text",
+      "fdv": 1,
+      "marketCap": 1,
+      "pairCreatedAt": 1,
+      "labels": [
+        "text"
+      ],
+      "volume": {
+        "ANY_ADDITIONAL_PROPERTY": 1
+      },
+      "priceChange": {
+        "ANY_ADDITIONAL_PROPERTY": 1
+      },
+      "baseToken": {
+        "address": "text",
+        "name": "text",
+        "symbol": "text"
+      },
+      "quoteToken": {
+        "address": "text",
+        "name": "text",
+        "symbol": "text"
+      },
+      "liquidity": {
+        "usd": 1,
+        "base": 1,
+        "quote": 1
+      },
+      "boosts": {
+        "active": 1
+      },
+      "txns": {
+        "ANY_ADDITIONAL_PROPERTY": {
+          "buys": 1,
+          "sells": 1
+        }
+      },
+      "info": {
+        "imageUrl": "https://example.com",
+        "websites": [
+          {
+            "url": "https://example.com"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "text",
+            "handle": "text"
+          }
+        ]
+      }
+    }
+  ]
 }
 ```
 
-#### Pair Data
+## Error Handling
 
-```python
-PairData = {
-    "pair_address": str,    # Pair contract
-    "token0": TokenData,    # Base token
-    "token1": TokenData,    # Quote token
-    "liquidity": float,     # Total liquidity
-    "volume_24h": float,    # 24h volume
-    "price": float         # Current price
-}
-```
-
-### Error Handling
-
-#### Network Errors
+### Network Errors
 
 ```python
 from requests.exceptions import RequestException
@@ -194,7 +219,7 @@ def safe_get_pairs(address: str):
         return []
 ```
 
-#### WebSocket Errors
+### WebSocket Errors
 
 ```python
 import websocket
@@ -209,7 +234,7 @@ def handle_websocket_error():
         return []
 ```
 
-### Best Practices
+## Best Practices
 
 1.  **Rate Limiting**
 
@@ -247,9 +272,9 @@ def handle_websocket_error():
                 sleep(2 ** attempt)
     ```
 
-### Performance Optimization
+## Performance Optimization
 
-#### Connection Pooling
+### Connection Pooling
 
 ```python
 import requests
@@ -263,7 +288,7 @@ class OptimizedDexClient(DexClient):
         self.session.mount('https://', HTTPAdapter(max_retries=retries))
 ```
 
-#### Caching
+### Caching
 
 ```python
 from functools import lru_cache
@@ -275,25 +300,9 @@ class CachedDexClient(DexClient):
         return super().get_token_pairs(chain_id, address)
 ```
 
-### Extension Points
+## Extension Points
 
-#### Custom Data Source
-
-```python
-from abc import ABC, abstractmethod
-
-class DataSource(ABC):
-    @abstractmethod
-    def get_token_data(self, symbol: str) -> Dict:
-        pass
-        
-class CustomDataSource(DataSource):
-    def get_token_data(self, symbol: str) -> Dict:
-        # Implementation
-        pass
-```
-
-#### Data Transformers
+### Data Transformers
 
 ```python
 class DataTransformer:
@@ -305,37 +314,7 @@ class DataTransformer:
         }
 ```
 
-### Security Considerations
-
-1.  **Input Sanitization**
-
-    ```python
-    def sanitize_address(address: str) -> str:
-        return "".join(c for c in address if c.isalnum())
-    ```
-2.  **API Key Protection**
-
-    ```python
-    import os
-
-    class SecureDexClient(DexClient):
-        def __init__(self):
-            self.api_key = os.getenv("DEX_API_KEY")
-            if not self.api_key:
-                raise ValueError("API key not found")
-    ```
-3.  **Request Validation**
-
-    ```python
-    def validate_request(chain_id: str, address: str) -> bool:
-        if not chain_id or not address:
-            return False
-        if len(address) != 44:  # Solana address length
-            return False
-        return True
-    ```
-
-### Monitoring and Logging
+## Monitoring and Logging
 
 ```python
 import logging

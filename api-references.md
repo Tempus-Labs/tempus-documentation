@@ -2,13 +2,13 @@
 icon: webhook
 ---
 
-# API Reference
+# API References
 
-### QuantAIAgent
+## QuantAIAgent
 
 The main class for interacting with the Tempus framework.
 
-#### Constructor
+### Constructor
 
 ```python
 QuantAIAgent(llm_provider: str = "openai", model_name: Optional[str] = None)
@@ -24,7 +24,7 @@ QuantAIAgent(llm_provider: str = "openai", model_name: Optional[str] = None)
 * OpenAI (default: gpt-4)
 * Deepseek (default: deepseek-chat)
 
-#### Methods
+### Methods
 
 **chat**
 
@@ -84,9 +84,9 @@ Get list of available analysis tools.
 
 * List of tool names
 
-### Market Analysis Tools
+## Market Analysis Tools
 
-#### analyze\_contract
+### analyze\_contract
 
 ```python
 def analyze_contract(contract_address: str) -> Dict[str, Any]
@@ -102,7 +102,7 @@ Analyze a Solana token contract.
 
 * Analysis report dictionary
 
-#### analyze\_ticker
+### analyze\_ticker
 
 ```python
 def analyze_ticker(ticker: str) -> Dict[str, Any]
@@ -118,7 +118,7 @@ Analyze a token by its ticker symbol.
 
 * Analysis report dictionary
 
-#### analyze\_market\_trends
+### analyze\_market\_trends
 
 ```python
 def analyze_market_trends(top_n_tokens: int = 10) -> Dict[str, Any]
@@ -134,7 +134,7 @@ Analyze trending tokens.
 
 * Market trend analysis dictionary
 
-#### analyze\_meta\_market
+### analyze\_meta\_market
 
 ```python
 def analyze_meta_market(top_n_tokens: int = 10, meta: str = "ai") -> Dict[str, Any]
@@ -151,9 +151,9 @@ Analyze tokens in a specific category.
 
 * Meta market analysis dictionary
 
-### Data Clients
+## Data Clients
 
-#### PumpFunClient
+### PumpFunClient
 
 Client for real-time token data from Pump.fun.
 
@@ -197,7 +197,7 @@ Get tokens by category.
 
 * List of token data dictionaries
 
-#### DexClient
+### DexClient
 
 Client for DexScreener API interactions.
 

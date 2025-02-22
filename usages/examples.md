@@ -4,9 +4,9 @@ icon: code
 
 # Examples
 
-### Basic Usage
+## Basic Usage
 
-#### Initialize Agent
+### Initialize Agent
 
 ```python
 from tempus.agents.quant_agent import QuantAIAgent
@@ -18,21 +18,21 @@ agent = QuantAIAgent()
 agent_deepseek = QuantAIAgent(llm_provider="deepseek")
 ```
 
-#### Simple Analysis
+### Simple Analysis
 
 ```python
 # Basic BTC analysis
-btc_analysis = agent.chat("Analyze BTC market trends")
+btc_analysis = agent.chat("Analyze Pump.Fun market trends")
 print(btc_analysis)
 
 # ETH analysis with streaming
-for chunk in agent.chat_stream("What's happening with ETH?"):
+for chunk in agent.chat_stream("What's happening with $ai16z?"):
     print(chunk, end="")
 ```
 
-### Market Analysis
+## Market Analysis
 
-#### Token Analysis
+### Token Analysis
 
 ```python
 # Analyze specific token
@@ -53,14 +53,14 @@ def analyze_token(symbol: str):
 analyze_token("SOL")
 ```
 
-#### Trend Analysis
+### Trend Analysis
 
 ```python
 def analyze_trends():
     agent = QuantAIAgent()
     
     # Get current trends
-    trends = agent.chat("What are the top trending tokens right now?")
+    trends = agent.chat("What are the top trending tokens in ai meta right now?")
     print("Current Trends:")
     print(trends)
     
@@ -73,7 +73,7 @@ def analyze_trends():
 analyze_trends()
 ```
 
-#### Meta Market Analysis
+### Meta Market Analysis
 
 ```python
 def analyze_category(category: str):
@@ -95,9 +95,9 @@ analyze_category("gaming")
 analyze_category("meme")
 ```
 
-### Data Integration
+## Data Integration
 
-#### Real-time Data
+### Real-time Data
 
 ```python
 from tempus.data.pump_fun_client import PumpFunClient
@@ -119,7 +119,7 @@ def monitor_trending():
 monitor_trending()
 ```
 
-#### Market Data Integration
+### Market Data Integration
 
 ```python
 from tempus.data.dex_client import DexClient
@@ -148,9 +148,9 @@ def analyze_pair(pair_name: str):
 analyze_pair("ETH/USDT")
 ```
 
-### Advanced Examples
+## Advanced Examples
 
-#### Custom Analysis Pipeline
+### Custom Analysis Pipeline
 
 ```python
 from typing import Dict, List
@@ -207,7 +207,7 @@ async def main():
 asyncio.run(main())
 ```
 
-#### Sentiment Analysis
+### Sentiment Analysis
 
 ```python
 def analyze_market_sentiment():
@@ -240,7 +240,7 @@ def analyze_market_sentiment():
 analyze_market_sentiment()
 ```
 
-#### Portfolio Analysis
+### Portfolio Analysis
 
 ```python
 def analyze_portfolio(holdings: Dict[str, float]):
@@ -276,7 +276,7 @@ holdings = {
 analyze_portfolio(holdings)
 ```
 
-#### Market Alert System
+### Market Alert System
 
 ```python
 import time

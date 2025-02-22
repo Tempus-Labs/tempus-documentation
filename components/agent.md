@@ -4,11 +4,11 @@ icon: brain-circuit
 
 # Agent
 
-### Overview
+## Overview
 
 The `Agents` component is the core of the Tempus framework, providing AI-powered market analysis capabilities. It uses LangChain and various LLM providers to create intelligent agents that can analyze cryptocurrency markets, understand market trends, and provide insights.
 
-### Capabilities
+## Capabilities
 
 * Processes user prompts and queries related to cryptocurrency analysis.
 * Analyzes live token data from the Solana blockchain.
@@ -16,7 +16,7 @@ The `Agents` component is the core of the Tempus framework, providing AI-powered
 * Supports multiple AI models, including OpenAI's GPT-4 and DeepSeek models.
 * Generates structured reports with trading recommendations and market trend analysis.
 
-### Agent Workflow
+## Agent Workflow
 
 1. **Receives Prompt Input** – The agent processes user messages and commands.
 2. **Queries Data from APIs** – The system retrieves data from external sources like Dexscreener and Solana RPC.
@@ -24,24 +24,9 @@ The `Agents` component is the core of the Tempus framework, providing AI-powered
 4. **Outputs a Detailed Market Report** – Generates insights, including price trends, volatility analysis, and contract evaluations.
 5. **Memory Management** – Maintains conversation history and context for continuous engagement.
 
-### Component
+## Basic Concepts
 
-* **Agent Name:** Unique identifier for the agent instance.
-* **Agent Type:** Defines the analytical scope (e.g., Quantitative Analysis).
-* **Agent Description:** Overview of the agent's analytical capabilities.
-
-### Methods
-
-* `initialize()` – Prepares the agent with necessary configurations, including selecting the AI model and initializing tools.
-* `run(prompt: str)` – Processes the input prompt, invokes the relevant analytical tools, and returns a structured market analysis report.
-* `chat(message: str) -> str` – Handles user queries, engages in conversation, and returns insights based on market conditions.
-* `chat_stream(message: str)` – Provides a real-time streaming response for interactive analysis.
-* `set_model(llm_provider: str, model_name: Optional[str])` – Allows switching between different AI models for enhanced customization and accuracy.
-* `terminate()` – Safely shuts down the agent and clears temporary data.
-
-### Basic Concepts
-
-#### QuantAIAgent
+### QuantAIAgent
 
 The main agent class that provides:
 
@@ -50,7 +35,7 @@ The main agent class that provides:
 * Conversation management
 * Tool orchestration
 
-#### Chatbot
+### Chatbot
 
 A helper class that manages:
 
@@ -59,7 +44,7 @@ A helper class that manages:
 * Error handling
 * Stream management
 
-#### State Management
+### State Management
 
 The agent maintains:
 
@@ -68,7 +53,7 @@ The agent maintains:
 * LLM configuration
 * Memory checkpoints
 
-### Architecture
+## Architecture
 
 ```
 agents/
@@ -76,7 +61,7 @@ agents/
 └── __init__.py         # Package initialization
 ```
 
-### Basic Usage
+## Basic Usage
 
 ```python
 from tempus.agents.quant_agent import QuantAIAgent
@@ -88,19 +73,19 @@ agent = QuantAIAgent(
 )
 
 # Basic interaction
-response = agent.chat("Analyze BTC market")
+response = agent.chat("Analyze pump.fun market")
 
 # Streaming interaction
-for chunk in agent.chat_stream("Analyze ETH trends"):
+for chunk in agent.chat_stream("Analyze solana trends"):
     print(chunk, end="")
 
 # Switch models
 agent.set_model("deepseek", "deepseek-chat")
 ```
 
-### Advanced Features
+## Advanced Features
 
-#### Conversation Management
+### Conversation Management
 
 The agent maintains conversation history for context:
 
@@ -112,7 +97,7 @@ history = agent.history
 agent.clear_history()
 ```
 
-#### Tool Integration
+### Tool Integration
 
 The agent automatically manages market analysis tools:
 
@@ -122,7 +107,7 @@ tools = agent.available_tools
 print(f"Available tools: {tools}")
 ```
 
-#### Error Handling
+### Error Handling
 
 The agent includes robust error handling:
 
@@ -135,9 +120,9 @@ except Exception as e:
     print(f"Analysis failed: {e}")
 ```
 
-### Configuration
+## Configuration
 
-#### LLM Providers
+### LLM Providers
 
 Currently supported LLM providers:
 
@@ -158,7 +143,7 @@ agent = QuantAIAgent(
 )
 ```
 
-#### Memory Management
+### Memory Management
 
 The agent uses LangChain's memory system:
 
@@ -170,9 +155,9 @@ memory = MemorySaver()
 # Configure memory as needed
 ```
 
-### Internal Components
+## Internal Components
 
-#### StateGraph
+### StateGraph
 
 The agent uses LangChain's StateGraph for workflow:
 
@@ -185,7 +170,7 @@ workflow.add_node("agent", Chatbot(runnable))
 workflow.add_node("tools", tool_node)
 ```
 
-#### Message Handling
+### Message Handling
 
 The agent processes different message types:
 
@@ -194,7 +179,7 @@ The agent processes different message types:
 * ToolMessage: Tool outputs
 * SystemMessage: System prompts
 
-### Best Practices
+## Best Practices
 
 1. **Model Selection**
    * Use OpenAI for accuracy
@@ -209,7 +194,7 @@ The agent processes different message types:
    * Use streaming for long responses
    * Batch similar queries
 
-### Common Issues
+## Common Issues
 
 1.  **Rate Limiting**
 
@@ -242,9 +227,9 @@ The agent processes different message types:
         response = agent.chat(query)
     ```
 
-### Extension Points
+## Extension Points
 
-#### Custom Tools
+### Custom Tools
 
 Add custom tools to the agent:
 
@@ -259,7 +244,7 @@ def custom_tool() -> Dict[str, Any]:
 agent.tools.append(custom_tool)
 ```
 
-#### Custom Prompts
+### Custom Prompts
 
 Modify system prompts:
 
@@ -272,7 +257,7 @@ custom_prompt = ChatPromptTemplate.from_messages([
 ])
 ```
 
-### Performance Optimization
+## Performance Optimization
 
 1.  **Streaming Optimization**
 
@@ -297,7 +282,7 @@ custom_prompt = ChatPromptTemplate.from_messages([
         return results
     ```
 
-### Security Considerations
+## Security Considerations
 
 1. **API Key Management**
    * Use environment variables

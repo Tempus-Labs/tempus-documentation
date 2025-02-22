@@ -1,6 +1,0 @@
----
-icon: vial
----
-
-# USAGE
-
