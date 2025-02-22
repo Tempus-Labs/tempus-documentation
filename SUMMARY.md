@@ -17,6 +17,6 @@
 
 ## OUR SOCIALS
 
-* [Website](http://149.28.90.44/)
+* [Website](https://tempuslabs.tech/)
 * [Twitter](https://x.com/LabsTempus)
 * [GitHub](https://github.com/Tempus-Labs/tempus)
