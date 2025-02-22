@@ -4,11 +4,6 @@
 * [Getting Started](getting-started.md)
 * [Roadmap](roadmap.md)
 
-## Usages
-
-* [Examples](usages/examples.md)
-* [Advanced Usage](usages/advanced-usage.md)
-
 ## COMPONENTS
 
 * [Agent](components/agent.md)
@@ -16,9 +11,14 @@
 * [Prompt Templates](components/prompt-templates.md)
 * [Tools](components/utils.md)
 
-***
+## Usages
 
-* [API References](api-references.md)
+* [Examples](usages/examples.md)
+* [Advanced Usage](usages/advanced-usage.md)
+
+## API REFERENCES
+
+* [API References](api-references/api-references.md)
 
 ## OUR SOCIALS
 

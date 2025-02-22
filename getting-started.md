@@ -86,7 +86,7 @@ Tempus integrates with:
 
 ## Next Steps
 
-* Check out the [API Reference](api-references.md) for detailed documentation
+* Check out the [API Reference](api-references/api-references.md) for detailed documentation
 * Learn about advanced features in [Advanced Usage](usages/advanced-usage.md)
 * See [Examples](usages/examples.md) for more use cases
 
