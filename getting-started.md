@@ -2,7 +2,7 @@
 icon: chart-simple-horizontal
 ---
 
-# Getting Started with Tempus
+# Getting Started
 
 ### Prerequisites
 
@@ -85,5 +85,9 @@ Tempus integrates with:
 * Multi-chain support (focused on Solana)
 
 ### Next Steps
+
+* Check out the [API Reference](api-reference.md) for detailed documentation
+* Learn about advanced features in [Advanced Usage](usage/advanced-usage.md)
+* See [Examples](usage/examples.md) for more use cases
 
 You're now ready to explore the power of Tempus Labs for AI-driven quantitative insights on the Solana ecosystem!
