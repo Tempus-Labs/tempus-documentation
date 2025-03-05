@@ -76,8 +76,8 @@ agent = QuantAIAgent(
 response = agent.chat("Analyze pump.fun market")
 
 # Streaming interaction
-for chunk in agent.chat_stream("Analyze solana trends"):
-    print(chunk, end="")
+for chunk in agent.chat_stream("What's happening with $ai16z?"):
+    chunk.pretty_print()
 
 # Switch models
 agent.set_model("deepseek", "deepseek-chat")

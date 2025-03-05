@@ -39,7 +39,7 @@ agent.set_model("deepseek", "deepseek-reasoning")
 def process_stream():
     agent = QuantAIAgent()
     for chunk in agent.chat_stream("Analyze pump.fun market"):
-        print(chunk, end="", flush=True)
+        chunk.pretty_print()
 ```
 
 ### Custom Stream Processing

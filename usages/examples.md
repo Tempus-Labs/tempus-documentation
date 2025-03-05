@@ -21,13 +21,13 @@ agent_deepseek = QuantAIAgent(llm_provider="deepseek")
 ### Simple Analysis
 
 ```python
-# Basic BTC analysis
-btc_analysis = agent.chat("Analyze Pump.Fun market trends")
-print(btc_analysis)
+# Basic pump.fun analysis
+pump_fun_analysis = agent.chat("Analyze Pump.Fun market trends")
+print(pump_fun_analysis)
 
-# ETH analysis with streaming
+# ai16z analysis with streaming
 for chunk in agent.chat_stream("What's happening with $ai16z?"):
-    print(chunk, end="")
+    chunk.pretty_print()
 ```
 
 ## Market Analysis

@@ -46,12 +46,12 @@ from tempus.agents import QuantAIAgent
 agent = QuantAIAgent()
 
 # Basic analysis
-response = agent.chat("Analyze BTC market trends")
+response = agent.chat("Analyze pump.fun market trends")
 print(response)
 
 # Streaming responses
-for chunk in agent.chat_stream("What's happening with ETH?"):
-    print(chunk, end="")
+for chunk in agent.chat_stream("What's happening with $ai16z?"):
+    chunk.pretty_print()
 ```
 {% endstep %}
 {% endstepper %}
