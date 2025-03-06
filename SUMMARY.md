@@ -22,6 +22,6 @@
 
 ## OUR SOCIALS
 
-* [Website](https://tempuslabs.tech/)
+* [Website](https://tempuslabs.space/)
 * [Twitter](https://x.com/LabsTempus)
 * [GitHub](https://github.com/Tempus-Labs/tempus)
