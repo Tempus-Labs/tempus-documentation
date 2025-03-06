@@ -18,6 +18,16 @@ The Strategic Roadmap delineates Tempus Labs commitment to advancing its platfor
   * Implement machine learning algorithms to detect market trends and anomalies.
   * Develop predictive models for token performance and liquidity analysis.
 
+**Phase II: Tempus Chatbot Integration (Q1 2025)**
+
+* **Objective:** Build and deploy the Tempus Chatbot with persistent context, enabling users to interact with the Quant AI Agent for real-time market insights and personalized analysis.
+* **Key Actions:**
+  * Develop a user-friendly chat interface with a basic UI for seamless interaction.
+  * Implement SQLite for persistent context storage, allowing the chatbot to remember past interactions.
+  * Integrate the Tempus Quant AI Agent with the chat interface to provide insights based on Solana market data.
+  * Enable personalized analysis by connecting user Solana wallets for tailored portfolio insights.
+  * Test and refine chatbot responses to ensure accuracy and relevancy of market insights.
+
 ## Social Media Sentiment Integration
 
 **Phase I: Sentiment Data Collection (Q2 2025)**
@@ -53,7 +63,5 @@ The Strategic Roadmap delineates Tempus Labs commitment to advancing its platfor
   * Analyze user portfolios to identify diversification opportunities and risk exposures.
   * Recommend asset reallocation and investment strategies using AI-driven insights.
   * Continuously update recommendations based on market dynamics and user preferences.
-
-
 
 This roadmap outlines Tempus Labs strategic initiatives to enhance its platform's capabilities in market analysis, portfolio management, and social media sentiment integration, aiming to provide users with a comprehensive and AI-driven toolset for informed decision-making in the Solana space.
