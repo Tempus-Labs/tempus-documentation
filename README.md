@@ -4,6 +4,8 @@ icon: hand-wave
 
 # Introduction
 
+Contract Address: xfvD3fVnrxMMeanjcU7Aym84hDL9VFrMun92nTLpump
+
 Tempus is a **Quant AI Agent Framework** designed for the **Solana ecosystem**, providing users with the tools to **build, deploy, and customize AI-driven quantitative analysis models**. By leveraging **modular architecture** and **AI-powered analytics**, Tempus enhances decision-making in crypto markets, offering deep insights into:
 
 * **Token performance**
